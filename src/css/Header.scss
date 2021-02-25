@@ -1,0 +1,32 @@
+.header {
+  position: relative;
+  z-index: 3;
+}
+
+.header-login {
+  margin-right: -8px;
+  margin-top: 4px;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 0;
+}
+
+.header-login-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  background: none;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}

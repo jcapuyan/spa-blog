@@ -1,0 +1,115 @@
+.detail {
+  padding: 120px 0 86px;
+}
+
+.detail-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 39px;
+  font-family: "游ゴシック", "Yu Gothic";
+  width: 100%;
+
+  &.detail-title-edit {
+    border: 1px solid #101010;
+    padding: 11px 19px 5px;
+    letter-spacing: 0.085em;
+    line-height: 1.67;
+    margin-bottom: 23px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.detail-date {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  display: block;
+
+  &.detail-date-edit {
+    margin-bottom: 19px;
+  }
+}
+
+.detail-image {
+  margin-bottom: 50px;
+  padding-top: 48.22%;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.detail-content {
+  font-family: "游ゴシック", "Yu Gothic";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 2.25;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+  width: 100%;
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  &.detail-content-edit {
+    border: 1px solid #101010;
+    padding: 14px 25px;
+    height: 394px;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.detail-button,
+.detail-edit {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 76px;
+
+  &.detail-button-edit,
+  &.detail-edit-single {
+    margin-bottom: 33px;
+  }
+}
+
+.detail-button-link,
+.detail-edit-link {
+  font-size: 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  background: none;
+  letter-spacing: 0.1em;
+  position: relative;
+  color: #101010;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: #101010;
+    width: 100%;
+    bottom: 3px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.detail-button-save {
+  margin-right: 48px;
+}
