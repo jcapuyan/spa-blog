@@ -3,9 +3,9 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { gql, useQuery, useMutation } from '@apollo/client';
 
 import { AuthContext } from '../context/auth';
-
 import moment from 'moment';
 import Breadcrumbs from '../components/Breadcrumbs';
+import Modal from '../components/Modal';
 
 import noimage from '../images/noimage.jpg';
 import '../css/Detail.scss';
@@ -20,6 +20,7 @@ const SinglePage = () => {
   const [image, setImage] = useState('');
   const [content, setContent] = useState('');
   const [date, setDate] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const { data } = useQuery(GET_POST, {
     variables: {
@@ -47,11 +48,21 @@ const SinglePage = () => {
     history.push('/'+id);
   }
 
-  const handleCancel = () => {
+  const handleClickCancel = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  }
+
+  const handleClickYes = () => {
     setTitle('');
     setImage('');
     setContent('');
+    setShowModal(false);
     history.push('/'+id);
+  }
+
+  const handleClickNo = () => {
+    setShowModal(false);
   }
 
   const handleImageChange = (e) => {
@@ -98,7 +109,7 @@ const SinglePage = () => {
         <div className="l-container">
             <div className="detail-button detail-button-edit">
               <button className="detail-button-link detail-button-save" onClick={handleSave}>Save Post</button>
-              <button className="detail-button-link detail-button-cancel" onClick={handleCancel}>Cancel</button>
+              <button className="detail-button-link detail-button-cancel" onClick={handleClickCancel}>Cancel</button>
             </div>
             <time className="detail-date detail-date-edit" dateTime={moment(date).format('YYYY-MM-DD')}>{moment(date).format('YYYY.MM.DD')}</time>
             <textarea
@@ -130,6 +141,9 @@ const SinglePage = () => {
             />
         </div>
       </section>
+      {showModal ?
+        <Modal handleClickYes={handleClickYes} handleClickNo={handleClickNo} />
+      : null}
     </div>
   )
 }

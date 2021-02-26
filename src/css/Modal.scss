@@ -1,0 +1,39 @@
+.modal {
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: rgba(0,0,0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-inner {
+  background-color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-message {
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+
+.modal-button {
+  padding: 10px;
+  font-family: 'Montserrat';
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.modal-button-first {
+  margin-bottom: 13px;
+}

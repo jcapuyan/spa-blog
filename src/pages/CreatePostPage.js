@@ -8,6 +8,8 @@ import { GET_POSTS } from '../utils/graphql';
 import { AuthContext } from '../context/auth';
 
 import Breadcrumbs from '../components/Breadcrumbs';
+import Modal from '../components/Modal';
+
 import '../css/Create.scss';
 import '../css/Detail.scss';
 import '../css/Wrapper.scss';
@@ -20,6 +22,7 @@ const CreatePostPage = () => {
   const [image, setImage] = useState('');
   const [content, setContent] = useState('');
   const [showError, setShowError] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const [ createPost, { data } ] = useMutation(CREATE_POST_MUTATION, {
     variables: { title: title, image: image, content: content },
@@ -40,11 +43,21 @@ const CreatePostPage = () => {
     createPost();
   }
 
-  const handleCancel = () => {
+  const handleClickCancel = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  }
+
+  const handleClickYes = () => {
     setTitle('');
     setImage('');
     setContent('');
+    setShowModal(false);
     history.push('/');
+  }
+
+  const handleClickNo = () => {
+    setShowModal(false);
   }
 
   const handleImageChange = (e) => {
@@ -78,7 +91,7 @@ const CreatePostPage = () => {
           <form className="create" onSubmit={handleSubmit}>
             <div className="create-button">
               <button className="create-button-link create-button-save">Save Post</button>
-              <button className="create-button-link create-button-cancel" onClick={handleCancel}>Cancel</button>
+              <button className="create-button-link create-button-cancel" onClick={handleClickCancel}>Cancel</button>
             </div>
             <textarea
               className="create-title"
@@ -110,6 +123,9 @@ const CreatePostPage = () => {
           </form>
         </div>
       </div>
+      {showModal ?
+        <Modal handleClickYes={handleClickYes} handleClickNo={handleClickNo} />
+      : null}
     </>
   );
 }
