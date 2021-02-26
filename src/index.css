@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
-@import './base/Sanitize.scss';
-@import './base/Layout.scss';
+@import './css/Sanitize.scss';
+@import './css/Layout.scss';
 
 body {
   margin: 0;
